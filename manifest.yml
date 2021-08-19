@@ -2,7 +2,7 @@
   "modules": {
     "workspacePage": [
       {
-        "key": "micro-test-1",
+        "key": "micro-test-2",
         "resource": "main",
         "title": "max的空间插件",
         "loadType": "Micro",

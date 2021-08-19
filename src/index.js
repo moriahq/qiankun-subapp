@@ -1,21 +1,10 @@
 import './public-path';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
-import { Routes, ScanHistory } from './routes';
+import App from './App';
 import './index.less';
 import './global/index.global.less';
 import './global/index.global.css';
-
-const App = () => {
-    return (
-        <>
-            <BrowserRouter history={ScanHistory}>
-                <Routes />
-            </BrowserRouter>
-        </>
-    );
-};
 
 function render(props) {
     const { container } = props;
