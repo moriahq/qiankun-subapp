@@ -1,0 +1,18 @@
+{
+  "modules": {
+    "workspacePage": [
+      {
+        "key": "micro-test-1",
+        "resource": "main",
+        "title": "max的空间插件",
+        "loadType": "Micro",
+      },
+    ],
+  },
+  "resources": [
+    {
+      "key": "main",
+      "path": "./iscan/assets/static/"
+    }
+  ],
+}

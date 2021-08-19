@@ -20,7 +20,7 @@ const outputConfig = isProd =>
         ? {
             filename: 'js/[name].[chunkhash].min.js',
             path: path.resolve(__dirname, distOutputPath),
-            publicPath: '/static/',
+            publicPath: './',
             library: 'new-iscan',
             libraryTarget: 'umd',
         }

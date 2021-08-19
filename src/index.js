@@ -1,7 +1,8 @@
+import './public-path';
 import React from 'react';
-import {render} from 'react-dom';
-import {BrowserRouter} from 'react-router-dom';
-import {Routes, ScanHistory} from './routes';
+import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+import { Routes, ScanHistory } from './routes';
 import './index.less';
 import './global/index.global.less';
 import './global/index.global.css';
@@ -16,4 +17,25 @@ const App = () => {
     );
 };
 
-render(<App />, document.getElementById('root'));
+function render(props) {
+    const { container } = props;
+    ReactDOM.render(<App />, container ? container.querySelector('#root') : document.querySelector('#root'));
+}
+
+if (!window.__POWERED_BY_QIANKUN__) {
+    render({});
+}
+
+export async function bootstrap() {
+    console.log('app bootstraped');
+}
+
+export async function mount(props) {
+    console.log('app mount ===>', props);
+    render(props);
+}
+
+export async function unmount(props) {
+    const { container } = props;
+    ReactDOM.unmountComponentAtNode(container ? container.querySelector('#root') : document.querySelector('#root'));
+}
