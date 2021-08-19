@@ -1,0 +1,9 @@
+.red {
+    color: red;
+    background: yellow;
+    transition :transform 1s;
+}
+
+.border {
+    border: 2px solid pink;
+}
