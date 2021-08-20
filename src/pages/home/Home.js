@@ -1,23 +1,29 @@
-import { Link } from "react-router-dom";
-import {useHistory} from 'react-router-dom';
+import React from 'react';
+import { useHistory } from 'react-router-dom';
+import { Input, Button } from '@osui/ui';
+import Error from '../../statics/error.png';
+import Logo from '../../statics/logo.svg';
+import Logo2 from '../../statics/Gitee-Scan.svg';
 
 
 const Home = () => {
   const history = useHistory();
 
   const goDemoPage = () => {
-    history.push({pathname: '/demo', state: {some: 'aaaaa'}})
+    history.push('/demo');
   }
 
   return (
     <div>
       <h2>这是微前端页面~</h2>
-      <ul>
-        <li onClick={goDemoPage}>
-          跳转
-          {/* <Link to="/demo">go Demo page</Link> */}
-        </li>
-      </ul>
+      <Button type="primary" onClick={goDemoPage}>goDemoPage</Button>
+      <Input placeholder="input 组件测试" />
+      <div>
+        <img src={Error} />
+      </div>
+      <div>svg测试:</div>
+      <img style={{ width: '300px' }} src={Logo} />
+      <img src={Logo2} />
     </div>
   )
 };

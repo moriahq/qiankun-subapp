@@ -1,9 +1,9 @@
+import React, { useContext } from 'react';
 import { Link } from "react-router-dom";
-import { useContext } from 'react';
 import { Button } from 'antd';
 
 import { QiankunContext } from '../../App';
-import styles from './Demo.module.scss';
+import styles from './Demo.module.less';
 
 const About = () => {
   const { globalState, setGlobalState, Parse } = useContext(QiankunContext);
@@ -22,7 +22,7 @@ const About = () => {
 
   return (
     <div className={styles.demoPage}>
-      <h2>this is demo page~~</h2>
+      <h2>this is demo page~</h2>
       <Button onClick={findScreen}>test Parse</Button>
       <div className={styles.br}></div>
       <Button type="primary" onClick={setGlobalStateFn}>test send message</Button>

@@ -12,7 +12,7 @@
   "resources": [
     {
       "key": "main",
-      "path": "./iscan/assets/static/"
+      "path": "./iscan/"
     }
   ],
 }

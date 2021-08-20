@@ -9,33 +9,34 @@ const CopyPlugin = require('copy-webpack-plugin');
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 const hasha = require('hasha');
 const namespacePefixer = require('postcss-selector-namespace');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const smp = new SpeedMeasurePlugin();
 
-const distOutputPath = 'iscan/assets/static';
+const distOutputPath = 'iscan';
 
 // output配置
 const outputConfig = isProd =>
-    (isProd
-        ? {
-            filename: 'js/[name].[chunkhash].min.js',
-            path: path.resolve(__dirname, distOutputPath),
-            publicPath: './',
-            library: 'new-iscan',
-            libraryTarget: 'umd',
-        }
-        : {
-            filename: 'main.js',
-            path: path.resolve(__dirname, distOutputPath),
-            publicPath: '/',
-        });
+(isProd
+    ? {
+        filename: 'js/[name].[chunkhash].min.js',
+        path: path.resolve(__dirname, distOutputPath),
+        publicPath: './',
+        library: 'new-iscan',
+        libraryTarget: 'umd',
+    }
+    : {
+        filename: 'main.js',
+        path: path.resolve(__dirname, distOutputPath),
+        publicPath: '/',
+    });
 
-const getLocalIdent = ({resourcePath}, localIdentName, localName) => {
+const getLocalIdent = ({ resourcePath }, localIdentName, localName) => {
     if (/\.global\.(css|less)$/.test(resourcePath) || /node_modules/.test(resourcePath)) {
-    // 不做cssModule 处理的
+        // 不做cssModule 处理的
         return localName;
     }
-    return `${localName}__${hasha(resourcePath + localName, {algorithm: 'md5'}).slice(0, 8)}`;
+    return `${localName}__${hasha(resourcePath + localName, { algorithm: 'md5' }).slice(0, 8)}`;
 };
 
 module.exports = (cliEnv = {}, argv) => {
@@ -48,7 +49,7 @@ module.exports = (cliEnv = {}, argv) => {
 
     const isProd = mode === 'production';
     const isDev = mode === 'development';
-    console.log({isProd, isDev});
+    console.log({ isProd, isDev });
 
     const classNamesConfig = {
         loader: '@ecomfe/class-names-loader',
@@ -77,7 +78,7 @@ module.exports = (cliEnv = {}, argv) => {
                 modifyVars: {
                     'ant-prefix': 'ant',
                 },
-                plugins: [new LessPluginLists(), new LessPluginFunctions({alwaysOverride: true})],
+                plugins: [new LessPluginLists(), new LessPluginFunctions({ alwaysOverride: true })],
             },
         },
     };
@@ -85,7 +86,7 @@ module.exports = (cliEnv = {}, argv) => {
     const cssLoaderConfig = {
         loader: 'css-loader',
         options: {
-            modules: {getLocalIdent},
+            modules: { getLocalIdent },
             importLoaders: 1,
         },
     };
@@ -131,11 +132,11 @@ module.exports = (cliEnv = {}, argv) => {
                 disableDotRule: true,
                 index: '/',
             },
-            // headers: {
-            //   "Access-Control-Allow-Origin": "*",
-            //   "Access-Control-Allow-Headers": "*",
-            //   "Access-Control-Allow-Methods": "*",
-            // },
+            headers: {
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Allow-Headers": "*",
+              "Access-Control-Allow-Methods": "*",
+            },
             // proxy: {
             //   "/api": {
             //     target: "http://127.0.0.1:4444",
@@ -174,6 +175,7 @@ module.exports = (cliEnv = {}, argv) => {
                 chunkGroups: false,
                 exclude: [/node_modules/],
             }),
+            new CleanWebpackPlugin(),
         ].filter(Boolean),
         // optimization: {
         //   splitChunks: {
@@ -207,7 +209,7 @@ module.exports = (cliEnv = {}, argv) => {
                         loader: 'babel-loader',
                         options: {
                             presets: ['@babel/preset-env', '@babel/preset-react'],
-                            plugins: [['import', {libraryName: 'antd', libraryDirectory: 'es', style: true}]],
+                            plugins: [['import', { libraryName: 'antd', libraryDirectory: 'es', style: true }]],
                         },
                     },
                 },

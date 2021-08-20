@@ -2,13 +2,12 @@ import './public-path';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import './index.less';
 import './global/index.global.less';
 import './global/index.global.css';
 
 function render(props) {
     const { container } = props;
-    ReactDOM.render(<App />, container ? container.querySelector('#root') : document.querySelector('#root'));
+    ReactDOM.render(<App {...props} />, container ? container.querySelector('#root') : document.querySelector('#root'));
 }
 
 if (!window.__POWERED_BY_QIANKUN__) {
