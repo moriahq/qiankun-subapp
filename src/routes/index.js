@@ -11,6 +11,21 @@ const routes = [
     component: React.lazy(() => import('../pages/demo/Demo')),
     exact: true
   },
+  {
+    path: '/demo2',
+    component: React.lazy(() => import('../pages/demo2/Demo')),
+    exact: true
+  },
+  {
+    path: '/demo3',
+    component: React.lazy(() => import('../pages/demo3/Demo')),
+    exact: true
+  },
+  {
+    path: '/demo4',
+    component: React.lazy(() => import('../pages/demo4/Demo')),
+    exact: true
+  },
 ];
 
 export default routes;

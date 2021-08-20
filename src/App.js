@@ -9,7 +9,12 @@ import routes from './routes';
 export const QiankunContext = React.createContext();
 
 function App(props) {
+  // const { route = '/' } = props;
   const [globalState, setGlobalState] = useState(null);
+
+  // console.log('route', route);
+  // window.location.hash = route;
+  // console.log('app render');
 
   useEffect(() => {
     if (props.onGlobalStateChange) {
