@@ -1,22 +1,30 @@
 import React, { useEffect, useState, Suspense, useMemo } from 'react';
 import {
-  HashRouter,
+  MemoryRouter,
   Switch,
   Route,
+  useHistory,
 } from "react-router-dom";
 import routes from './routes';
 
 export const QiankunContext = React.createContext();
 
+const GoPropsRoute = (props) => {
+  const history = useHistory();
+
+  useEffect(() => {
+    console.log('子应用接收route:', props?.route);
+    // 跳转渲染指定的路由
+    if (props?.route) {
+      history.push(props?.route);
+    }
+  }, [])
+
+  return null
+}
+
 function App(props) {
   const [globalState, setGlobalState] = useState(null);
-
-  console.log('子应用接收route:', props?.route);
-  console.log('window?.location?.hash', window?.location?.hash);
-  // if (props?.route && !window?.location?.hash) {
-  if (props?.route) {
-    window.location.hash = props?.route;
-  }
 
   const qiankunContextValue = useMemo(() => ({
     globalState,
@@ -25,7 +33,8 @@ function App(props) {
 
   return (
     <QiankunContext.Provider value={qiankunContextValue}>
-      <HashRouter>
+      <MemoryRouter>
+        <GoPropsRoute {...props} />
         <Switch>
           <Suspense fallback={<div>Loading...</div>}>
             {routes.map(({ path, component, exact }) => (
@@ -33,7 +42,7 @@ function App(props) {
             ))}
           </Suspense>
         </Switch>
-      </HashRouter>
+      </MemoryRouter>
     </QiankunContext.Provider>
   );
 }

@@ -5,7 +5,6 @@ import Error from '../../statics/error.png';
 import Logo from '../../statics/logo.svg';
 import Logo2 from '../../statics/Gitee-Scan.svg';
 
-
 const Home = () => {
   const history = useHistory();
 

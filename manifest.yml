@@ -1,26 +1,17 @@
 {
   "modules": {
-    "workspacePage": [
-      {
-        "key": "micro-workspacePage-1",
-        "resource": "main",
-        "title": "空间插件1",
-        "loadType": "Micro",
-        "route": '/demo1'
-      },
-    ],
     "itemPanel": [
       {
         "key": "micro-itemPanel-1",
         "resource": "main",
-        "title": "卡片面板插件1",
+        "title": "new卡片面板插件1",
         "loadType": "Micro",
         "route": "/demo2"
       },
       {
         "key": "micro-itemPanel-2",
         "resource": "main",
-        "title": "卡片面板插件2",
+        "title": "new卡片面板插件2",
         "loadType": "Micro",
         "route": "/demo3"
       },
@@ -28,14 +19,14 @@
     "itemActivity": [
       {
         "key": "micro-itemActivity-1",
-        "title": "卡片活动插件1",
+        "title": "new卡片活动插件1",
         "resource": "main",
         "loadType": "Micro",
         "route": "/demo4"
       },
       {
         "key": "micro-itemActivity-2",
-        "title": "卡片活动插件2",
+        "title": "new卡片活动插件2",
         "resource": "main",
         "loadType": "Micro",
         "route": "/demo5"

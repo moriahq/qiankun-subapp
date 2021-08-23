@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link } from "react-router-dom";
 
 import { QiankunContext } from '../../App';
 import styles from './Demo.module.less';
@@ -9,6 +10,7 @@ const About = () => {
   return (
     <div className={styles.demoPage}>
       <h2>卡片活动_1</h2>
+      <Link to="/demo5">跳转demo5</Link>
     </div>
   )
 };
