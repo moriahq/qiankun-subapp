@@ -4,7 +4,6 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import history from 'history';
 import routes from './routes';
 
 export const QiankunContext = React.createContext();
@@ -12,13 +11,12 @@ export const QiankunContext = React.createContext();
 function App(props) {
   const [globalState, setGlobalState] = useState(null);
 
-  useEffect(() => {
-    console.log('子应用接收route:', props?.route);
-    console.log('window?.location?.hash', window?.location?.hash);
-    if (props?.route && window?.location?.hash === '#/') {
-      history.replace(props?.route);
-    }
-  }, [props]);
+  console.log('子应用接收route:', props?.route);
+  console.log('window?.location?.hash', window?.location?.hash);
+  // if (props?.route && !window?.location?.hash) {
+  if (props?.route) {
+    window.location.hash = props?.route;
+  }
 
   const qiankunContextValue = useMemo(() => ({
     globalState,
