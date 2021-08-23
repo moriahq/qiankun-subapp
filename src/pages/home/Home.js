@@ -10,7 +10,7 @@ const Home = () => {
   const history = useHistory();
 
   const goDemoPage = () => {
-    history.push('/demo');
+    history.push('/demo1');
   }
 
   return (

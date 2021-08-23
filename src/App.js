@@ -4,23 +4,19 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import history from 'history';
 import routes from './routes';
 
 export const QiankunContext = React.createContext();
 
 function App(props) {
-  // const { route = '/' } = props;
   const [globalState, setGlobalState] = useState(null);
 
-  // console.log('route', route);
-  // window.location.hash = route;
-  // console.log('app render');
-
   useEffect(() => {
-    if (props.onGlobalStateChange) {
-      props.onGlobalStateChange(state => {
-        setGlobalState(state)
-      })
+    console.log('子应用接收route:', props?.route);
+    console.log('window?.location?.hash', window?.location?.hash);
+    if (props?.route && window?.location?.hash === '#/') {
+      history.replace(props?.route);
     }
   }, [props]);
 

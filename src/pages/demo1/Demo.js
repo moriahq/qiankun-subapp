@@ -22,16 +22,8 @@ const About = () => {
 
   return (
     <div className={styles.demoPage}>
-      <h2>this is demo page~</h2>
-      <Button onClick={findScreen}>test Parse</Button>
-      <div className={styles.br}></div>
-      <Button type="primary" onClick={setGlobalStateFn}>test send message</Button>
-      <span className={styles.text}>消息::: {globalState?.data?.text}</span>
-      <ul className={styles.ul}>
-        <li>
-          <Link to="/">go Home page</Link>
-        </li>
-      </ul>
+      <h2>卡片动作</h2>
+      <Link to="/demo2">跳转demo2</Link>
     </div>
   )
 };

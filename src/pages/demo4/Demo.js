@@ -8,7 +8,7 @@ const About = () => {
 
   return (
     <div className={styles.demoPage}>
-      <h2>this is demo page333</h2>
+      <h2>卡片活动_1</h2>
     </div>
   )
 };

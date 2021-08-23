@@ -6,30 +6,7 @@
         "resource": "main",
         "title": "空间插件1",
         "loadType": "Micro",
-        "route": "/demo"
-      },
-      {
-        "key": "micro-workspacePage-2",
-        "resource": "main",
-        "title": "空间插件2",
-        "loadType": "Micro",
-        "route": "/demo2"
-      },
-    ],
-    "itemAction": [
-      {
-        "key": "micro-itemAction-1",
-        "resource": "main",
-        "title": "卡片动作插件1",
-        "loadType": "Micro",
-        "route": "/demo"
-      },
-      {
-        "key": "micro-itemAction-2",
-        "resource": "main",
-        "title": "卡片动作插件2",
-        "loadType": "Micro",
-        "route": "/demo2"
+        "route": '/demo1'
       },
     ],
     "itemPanel": [
@@ -61,6 +38,7 @@
         "title": "卡片活动插件2",
         "resource": "main",
         "loadType": "Micro",
+        "route": "/demo5"
       },
     ],
   },

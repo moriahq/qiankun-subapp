@@ -7,8 +7,8 @@ const routes = [
     exact: true
   },
   {
-    path: '/demo',
-    component: React.lazy(() => import('../pages/demo/Demo')),
+    path: '/demo1',
+    component: React.lazy(() => import('../pages/demo1/Demo')),
     exact: true
   },
   {
@@ -24,6 +24,11 @@ const routes = [
   {
     path: '/demo4',
     component: React.lazy(() => import('../pages/demo4/Demo')),
+    exact: true
+  },
+  {
+    path: '/demo5',
+    component: React.lazy(() => import('../pages/demo5/Demo')),
     exact: true
   },
 ];

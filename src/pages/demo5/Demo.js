@@ -8,7 +8,7 @@ const About = () => {
 
   return (
     <div className={styles.demoPage}>
-      <h2>卡片面板_1</h2>
+      <h2>卡片活动_2</h2>
     </div>
   )
 };
