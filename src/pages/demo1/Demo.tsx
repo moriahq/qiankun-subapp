@@ -17,7 +17,7 @@ const About: React.FC = () => {
 
   return (
     <div className={styles.demoPage}>
-      <h2>卡片动作</h2>
+      <h2>卡片面板微前端</h2>
       <Button onClick={findScreen}>测试 Parse</Button>
       <Link to="/">跳转首页</Link>
     </div>

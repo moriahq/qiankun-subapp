@@ -1,27 +1,43 @@
 modules:
+  itemAction:
+    -
+      key: micro-itemAction-1
+      resource: main
+      title: 卡片动作微应用
+      loadType: Micro
   itemPanel:
     -
       key: micro-itemPanel-1
       resource: main
-      title: 卡片面板插件1
+      title: 卡片面板微应用
       loadType: Micro
-    -
-      key: micro-itemPanel-2
-      resource: main
-      title: 卡片面板插件2
-      loadType: Micro
-      route: /demo3
+      route: /demo1
   itemActivity:
     -
       key: micro-itemActivity-1
       resource: main
-      title: 卡片活动插件1
+      title: 卡片活动微应用
+      loadType: Micro
+      route: /demo2
+  adminPage:
+    -
+      key: micro-adminPage-1
+      resource: main
+      title: 管理微前端
+      loadType: Micro
+      route: /demo3
+  appPage:
+    -
+      key: micro-appPage-1
+      resource: main
+      title: 应用微前端
       loadType: Micro
       route: /demo4
+  workspacePage:
     -
-      key: micro-itemActivity-2
+      key: micro-workspacePage-1
       resource: main
-      title: 卡片活动插件2
+      title: 空间微前端
       loadType: Micro
       route: /demo5
 
