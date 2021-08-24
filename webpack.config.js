@@ -2,7 +2,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const LessPluginFunctions = require('less-plugin-functions');
-const svgToMiniDataURI = require('mini-svg-data-uri');
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 const hasha = require('hasha');
 const namespacePefixer = require('postcss-selector-namespace');
@@ -99,7 +98,7 @@ module.exports = (cliEnv = {}, argv) => {
         },
     };
     const webpackConfig = {
-        entry: './src/index.js',
+        entry: './src/index.tsx',
         mode: isProd ? 'production' : 'development',
         output: outputConfig(isProd),
         devtool: (() => {
