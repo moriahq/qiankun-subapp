@@ -2,8 +2,7 @@ import './public-path';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import './global/index.global.less';
-import './global/index.global.css';
+import './index.global.less';
 
 function render(props) {
     const { container } = props;

@@ -5,7 +5,6 @@ const LessPluginLists = require('less-plugin-lists');
 const LessPluginFunctions = require('less-plugin-functions');
 const StatsPlugin = require('stats-webpack-plugin');
 const svgToMiniDataURI = require('mini-svg-data-uri');
-const CopyPlugin = require('copy-webpack-plugin');
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 const hasha = require('hasha');
 const namespacePefixer = require('postcss-selector-namespace');
@@ -13,7 +12,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const smp = new SpeedMeasurePlugin();
 
-const distOutputPath = 'iscan';
+const distOutputPath = 'dist';
 
 // output配置
 const outputConfig = isProd =>
@@ -22,7 +21,7 @@ const outputConfig = isProd =>
         filename: 'js/[name].[chunkhash].min.js',
         path: path.resolve(__dirname, distOutputPath),
         publicPath: './',
-        library: 'new-iscan',
+        library: 'proxima-plugin',
         libraryTarget: 'umd',
     }
     : {
@@ -97,7 +96,7 @@ module.exports = (cliEnv = {}, argv) => {
             postcssOptions: {
                 plugins: [
                     namespacePefixer({
-                        namespace: '.osc-scan',
+                        namespace: '.proxima-plugin',
                     }),
                 ],
             },
@@ -124,7 +123,7 @@ module.exports = (cliEnv = {}, argv) => {
             // disableHostCheck: true,
             // host: process.env.HOST || "0.0.0.0",
             // port: process.env.PORT || 3000,
-            contentBase: path.resolve(__dirname, '../iscan'),
+            contentBase: path.resolve(__dirname, '../dist'),
             // watchContentBase: true,
             // stats: "minimal",
             // overlay: true,
@@ -144,14 +143,6 @@ module.exports = (cliEnv = {}, argv) => {
             // },
         },
         plugins: [
-            new CopyPlugin({
-                patterns: [
-                    {
-                        from: path.resolve(__dirname, 'src/statics/iconfont'),
-                        to: path.resolve(__dirname, `${distOutputPath}/iconfont`),
-                    },
-                ],
-            }),
             new HtmlWebpackPlugin({
                 template: path.resolve(__dirname, 'public/index.html'),
                 filename: 'index.html',
