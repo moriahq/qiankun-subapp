@@ -19,16 +19,18 @@ if (!window.__POWERED_BY_QIANKUN__) {
   render({});
 }
 
-export async function bootstrap() {
+export async function bootstrap(): Promise<void> {
   console.info('app bootstraped');
 }
 
-export async function mount(props) {
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+export async function mount(props): Promise<void> {
   console.info('app mount ===>', props);
   render(props);
 }
 
-export async function unmount(props) {
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+export async function unmount(props): Promise<void> {
   const { container } = props;
   ReactDOM.unmountComponentAtNode(
     container ? container.querySelector('#root') : document.querySelector('#root'),
