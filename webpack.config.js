@@ -7,6 +7,7 @@ const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 const hasha = require('hasha');
 const namespacePefixer = require('postcss-selector-namespace');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const WebpackBar = require('webpackbar');
 
 const smp = new SpeedMeasurePlugin();
 
@@ -111,7 +112,10 @@ module.exports = (cliEnv = {}, argv) => {
             return false;
         })(),
         resolve: {
-            extensions: ['.js', '.css', '.jsx'],
+            extensions: ['.js', '.css', '.jsx', '.tsx', '.ts'],
+            alias: {
+                '@': path.resolve(__dirname, 'src/')
+            }
         },
         devServer: {
             hot: "only",
@@ -131,6 +135,7 @@ module.exports = (cliEnv = {}, argv) => {
             },
         },
         plugins: [
+            new WebpackBar(),
             new HtmlWebpackPlugin({
                 template: path.resolve(__dirname, 'public/index.html'),
                 filename: 'index.html',
@@ -145,6 +150,11 @@ module.exports = (cliEnv = {}, argv) => {
         ].filter(Boolean),
         module: {
             rules: [
+                {
+                    test: /\.tsx?$/,
+                    use: 'ts-loader',
+                    exclude: /node_modules/,
+                },
                 {
                     test: /\.(js|jsx)$/,
                     exclude: /node_modules/,

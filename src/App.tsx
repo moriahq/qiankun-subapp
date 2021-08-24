@@ -1,35 +1,36 @@
-import React, { useEffect, useState, Suspense, useMemo } from 'react';
-import {
-  MemoryRouter,
-  Switch,
-  Route,
-  useHistory,
-} from "react-router-dom";
+import React, { useEffect, Suspense, useMemo } from 'react';
+import { MemoryRouter, Switch, Route, useHistory } from 'react-router-dom';
 import routes from './routes';
 
-export const QiankunContext = React.createContext();
+interface QiankunContextProps {
+  setGlobalState?: (data: { data: any }) => void;
+  Parse?: any;
+  onRefreshContext?: any;
+}
 
-const GoPropsRoute = (props) => {
+export const QiankunContext = React.createContext({} as QiankunContextProps);
+
+const GoPropsRoute = props => {
   const history = useHistory();
 
   useEffect(() => {
-    console.log('子应用接收route:', props?.route);
+    console.info('子应用接收route:', props?.route);
     // 跳转渲染指定的路由
     if (props?.route) {
       history.push(props?.route);
     }
-  }, [])
+  }, []);
 
-  return null
-}
+  return null;
+};
 
-function App(props) {
-  const [globalState, setGlobalState] = useState(null);
-
-  const qiankunContextValue = useMemo(() => ({
-    globalState,
-    ...props
-  }), [globalState, props]);
+const App: React.FC = props => {
+  const qiankunContextValue: any = useMemo(
+    () => ({
+      ...props,
+    }),
+    [props],
+  );
 
   return (
     <QiankunContext.Provider value={qiankunContextValue}>
@@ -45,6 +46,6 @@ function App(props) {
       </MemoryRouter>
     </QiankunContext.Provider>
   );
-}
+};
 
 export default App;
