@@ -21,7 +21,7 @@ const Home = () => {
         <img src={Error} />
       </div>
       <div>svg测试:</div>
-      <img style={{ width: '300px' }} src={Logo} />
+      <Logo style={{ width: '300px' }} />
     </div>
   )
 };

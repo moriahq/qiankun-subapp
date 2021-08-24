@@ -2,7 +2,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const LessPluginFunctions = require('less-plugin-functions');
-const StatsPlugin = require('stats-webpack-plugin');
 const svgToMiniDataURI = require('mini-svg-data-uri');
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 const hasha = require('hasha');
@@ -38,7 +37,6 @@ const getLocalIdent = ({ resourcePath }, localIdentName, localName) => {
 };
 
 module.exports = (cliEnv = {}, argv) => {
-    console.log(cliEnv, argv);
     const mode = argv.mode;
 
     if (!['production', 'development'].includes(mode)) {
@@ -47,7 +45,6 @@ module.exports = (cliEnv = {}, argv) => {
 
     const isProd = mode === 'production';
     const isDev = mode === 'development';
-    console.log({ isProd, isDev });
 
     const classNamesConfig = {
         loader: '@ecomfe/class-names-loader',
@@ -56,7 +53,6 @@ module.exports = (cliEnv = {}, argv) => {
         },
     };
     // 生产环境使用 MiniCssExtractPlugin
-    // const extractOrStyleLoaderConfig = 'style-loader';
     const extractOrStyleLoaderConfig = isProd ? MiniCssExtractPlugin.loader : 'style-loader';
 
     // 根据 patterns 使用 style-resources-loader
@@ -121,16 +117,7 @@ module.exports = (cliEnv = {}, argv) => {
             hot: "only",
             static: {
                 directory: path.resolve(__dirname, '../dist'),
-                staticOptions: {},
-                // Don't be confused with `devMiddleware.publicPath`, it is `publicPath` for static directory
-                // Can be:
-                // publicPath: ['/static-public-path-one/', '/static-public-path-two/'],
-                publicPath: "/static-public-path/",
-                // Can be:
-                // serveIndex: {} (options for the `serveIndex` option you can find https://github.com/expressjs/serve-index)
                 serveIndex: true,
-                // Can be:
-                // watch: {} (options for the `watch` option you can find https://github.com/paulmillr/chokidar)
                 watch: true,
             },
             historyApiFallback: {
@@ -153,45 +140,9 @@ module.exports = (cliEnv = {}, argv) => {
             && new MiniCssExtractPlugin({
                 filename: '[name].[contenthash].css',
                 chunkFilename: '[name].[contenthash].chunk.css',
-                // experimentalUseImportModule: true,
-            }),
-            new StatsPlugin('stats-manifest.json', {
-                chunkModules: false,
-                entrypoints: true,
-                source: false,
-                chunks: false,
-                modules: false,
-                assets: false,
-                children: false,
-                outputPath: false,
-                chunkGroups: false,
-                exclude: [/node_modules/],
             }),
             new CleanWebpackPlugin(),
         ].filter(Boolean),
-        // optimization: {
-        //   splitChunks: {
-        //     chunks: 'async',
-        //     minSize: 20000,
-        //     minRemainingSize: 0,
-        //     minChunks: 1,
-        //     maxAsyncRequests: 30,
-        //     maxInitialRequests: 30,
-        //     enforceSizeThreshold: 50000,
-        //     cacheGroups: {
-        //       defaultVendors: {
-        //         test: /[\\/]node_modules[\\/]/,
-        //         priority: -10,
-        //         reuseExistingChunk: true
-        //       },
-        //       default: {
-        //         minChunks: 2,
-        //         priority: -20,
-        //         reuseExistingChunk: true
-        //       }
-        //     }
-        //   }
-        // },
         module: {
             rules: [
                 {
@@ -258,20 +209,8 @@ module.exports = (cliEnv = {}, argv) => {
                     },
                 },
                 {
-                    test: /\.svg/,
-                    type: 'asset',
-                    generator: {
-                        dataUrl: content => {
-                            content = content.toString();
-                            return svgToMiniDataURI(content);
-                        },
-                    },
-                    // 小于 400 kb inline， 大于400kb resource
-                    parser: {
-                        dataUrlCondition: {
-                            maxSize: 400 * 1024, // 200kb
-                        },
-                    },
+                    test: /\.svg$/,
+                    use: ['@svgr/webpack'],
                 },
             ],
         },
