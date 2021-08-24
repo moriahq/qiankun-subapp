@@ -1,41 +1,31 @@
-{
-  "modules": {
-    "itemPanel": [
-      {
-        "key": "micro-itemPanel-1",
-        "resource": "main",
-        "title": "new卡片面板插件1",
-        "loadType": "Micro",
-      },
-      {
-        "key": "micro-itemPanel-2",
-        "resource": "main",
-        "title": "new卡片面板插件2",
-        "loadType": "Micro",
-        "route": "/demo3"
-      },
-    ],
-    "itemActivity": [
-      {
-        "key": "micro-itemActivity-1",
-        "title": "new卡片活动插件1",
-        "resource": "main",
-        "loadType": "Micro",
-        "route": "/demo4"
-      },
-      {
-        "key": "micro-itemActivity-2",
-        "title": "new卡片活动插件2",
-        "resource": "main",
-        "loadType": "Micro",
-        "route": "/demo5"
-      },
-    ],
-  },
-  "resources": [
-    {
-      "key": "main",
-      "path": "./dist/"
-    }
-  ],
-}
+modules:
+  itemPanel:
+    -
+      key: micro-itemPanel-1
+      resource: main
+      title: 卡片面板插件1
+      loadType: Micro
+    -
+      key: micro-itemPanel-2
+      resource: main
+      title: 卡片面板插件2
+      loadType: Micro
+      route: /demo3
+  itemActivity:
+    -
+      key: micro-itemActivity-1
+      resource: main
+      title: 卡片活动插件1
+      loadType: Micro
+      route: /demo4
+    -
+      key: micro-itemActivity-2
+      resource: main
+      title: 卡片活动插件2
+      loadType: Micro
+      route: /demo5
+
+resources:
+  -
+    key: main
+    path: ./dist/
