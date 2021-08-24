@@ -2,8 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { Input, Button, Rate } from '@osui/ui';
 import Error from '../../statics/error.png';
-import Logo from '../../statics/logo.svg';
-import Logo2 from '../../statics/Gitee-Scan.svg';
+import Logo from '../../statics/Gitee-Scan.svg';
 
 const Home = () => {
   const history = useHistory();
@@ -23,7 +22,6 @@ const Home = () => {
       </div>
       <div>svg测试:</div>
       <img style={{ width: '300px' }} src={Logo} />
-      <img src={Logo2} />
     </div>
   )
 };
