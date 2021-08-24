@@ -6,7 +6,6 @@
         "resource": "main",
         "title": "new卡片面板插件1",
         "loadType": "Micro",
-        "route": "/demo2"
       },
       {
         "key": "micro-itemPanel-2",
