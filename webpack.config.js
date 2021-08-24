@@ -1,7 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const LessPluginLists = require('less-plugin-lists');
 const LessPluginFunctions = require('less-plugin-functions');
 const StatsPlugin = require('stats-webpack-plugin');
 const svgToMiniDataURI = require('mini-svg-data-uri');
@@ -77,7 +76,7 @@ module.exports = (cliEnv = {}, argv) => {
                 modifyVars: {
                     'ant-prefix': 'ant',
                 },
-                plugins: [new LessPluginLists(), new LessPluginFunctions({ alwaysOverride: true })],
+                plugins: [new LessPluginFunctions({ alwaysOverride: true })],
             },
         },
     };
@@ -119,14 +118,21 @@ module.exports = (cliEnv = {}, argv) => {
             extensions: ['.js', '.css', '.jsx'],
         },
         devServer: {
-            hot: true,
-            // disableHostCheck: true,
-            // host: process.env.HOST || "0.0.0.0",
-            // port: process.env.PORT || 3000,
-            contentBase: path.resolve(__dirname, '../dist'),
-            // watchContentBase: true,
-            // stats: "minimal",
-            // overlay: true,
+            hot: "only",
+            static: {
+                directory: path.resolve(__dirname, '../dist'),
+                staticOptions: {},
+                // Don't be confused with `devMiddleware.publicPath`, it is `publicPath` for static directory
+                // Can be:
+                // publicPath: ['/static-public-path-one/', '/static-public-path-two/'],
+                publicPath: "/static-public-path/",
+                // Can be:
+                // serveIndex: {} (options for the `serveIndex` option you can find https://github.com/expressjs/serve-index)
+                serveIndex: true,
+                // Can be:
+                // watch: {} (options for the `watch` option you can find https://github.com/paulmillr/chokidar)
+                watch: true,
+            },
             historyApiFallback: {
                 disableDotRule: true,
                 index: '/',
@@ -136,11 +142,6 @@ module.exports = (cliEnv = {}, argv) => {
               "Access-Control-Allow-Headers": "*",
               "Access-Control-Allow-Methods": "*",
             },
-            // proxy: {
-            //   "/api": {
-            //     target: "http://127.0.0.1:4444",
-            //   },
-            // },
         },
         plugins: [
             new HtmlWebpackPlugin({
