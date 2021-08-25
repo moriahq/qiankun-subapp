@@ -23,8 +23,7 @@ modules:
       loadType: Micro
       route: /demo3
   appPage:
-    -
-      key: micro-appPage-1
+    - key: micro-appPage-1
       resource: main
       title: 应用微前端
       loadType: Micro
