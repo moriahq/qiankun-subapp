@@ -1,27 +1,23 @@
 modules:
   itemAction:
-    -
-      key: micro-itemAction-1
+    - key: micro-itemAction-1
       resource: main
       title: 卡片动作微应用
       loadType: Micro
   itemPanel:
-    -
-      key: micro-itemPanel-1
+    - key: micro-itemPanel-1
       resource: main
       title: 卡片面板微应用
       loadType: Micro
       route: /demo1
   itemActivity:
-    -
-      key: micro-itemActivity-1
+    - key: micro-itemActivity-1
       resource: main
       title: 卡片活动微应用
       loadType: Micro
       route: /demo2
   adminPage:
-    -
-      key: micro-adminPage-1
+    - key: micro-adminPage-1
       resource: main
       title: 管理微前端
       loadType: Micro
@@ -34,14 +30,12 @@ modules:
       loadType: Micro
       route: /demo4
   workspacePage:
-    -
-      key: micro-workspacePage-1
+    - key: micro-workspacePage-1
       resource: main
       title: 空间微前端
       loadType: Micro
       route: /demo5
 
 resources:
-  -
-    key: main
+  - key: main
     path: ./dist/
