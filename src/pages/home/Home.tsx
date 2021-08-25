@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { Input, Button, Rate } from '@osui/ui';
 import Error from '@/statics/error.png';
 import Logo from '@/statics/Gitee-Scan.svg';
+import cx from './home.less';
 
 const Home: React.FC = () => {
   const history = useHistory();
@@ -13,7 +14,7 @@ const Home: React.FC = () => {
 
   return (
     <div>
-      <h2>这是卡片动作微前端</h2>
+      <h2 className={cx('title')}>这是卡片动作微前端</h2>
       <Button type="primary" onClick={goDemoPage}>
         goDemo1
       </Button>

@@ -168,12 +168,8 @@ module.exports = (cliEnv = {}, argv) => {
         },
         {
           test: /\.css/,
-          include: [path.resolve(__dirname, 'src')],
-          use: [classNamesConfig, extractOrStyleLoaderConfig, cssLoaderConfig],
-        },
-        {
-          test: /\.css/,
           include: [
+            path.resolve(__dirname, 'src'),
             path.resolve(__dirname, 'node_modules/antd/'),
             path.resolve(__dirname, 'node_modules/@osui'),
             path.resolve(__dirname, 'node_modules/github-markdown-css'),
@@ -182,33 +178,11 @@ module.exports = (cliEnv = {}, argv) => {
         },
         {
           test: /\.less$/,
-          // eslint-disable-next-line max-len
-          include: [
-            path.resolve(__dirname, 'node_modules/antd/'),
-            path.resolve(__dirname, 'node_modules/@osui'),
-          ],
-          use: [
-            extractOrStyleLoaderConfig,
-            cssLoaderConfig,
-            postcssLoaderConfig,
-            lessLoaderConfig,
-            makeStyleResourcesLoader([
-              path.resolve(__dirname, 'node_modules/@osui/theme/dist/antd-vars-patch.less'),
-              path.resolve(
-                __dirname,
-                'node_modules/@osui/theme/dist/less-functions-overrides.less',
-              ),
-            ]),
-          ],
-        },
-        {
-          test: /\.less$/,
-          include: [path.resolve(__dirname, 'src')],
           use: [
             classNamesConfig,
             extractOrStyleLoaderConfig,
             cssLoaderConfig,
-            'postcss-loader',
+            postcssLoaderConfig,
             lessLoaderConfig,
             makeStyleResourcesLoader([
               path.resolve(__dirname, 'node_modules/@osui/theme/dist/antd-vars-patch.less'),
