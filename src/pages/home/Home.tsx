@@ -13,7 +13,7 @@ const Home: React.FC = () => {
 
   return (
     <div>
-      <h2>这是微前端页面~</h2>
+      <h2>这是卡片动作微前端</h2>
       <Button type="primary" onClick={goDemoPage}>
         goDemo1
       </Button>
