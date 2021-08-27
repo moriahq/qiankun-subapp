@@ -1,3 +1,6 @@
+app:
+  uuid: {{uuid}}
+  name: {{projectName}}
 modules:
   itemAction:
     - key: micro-itemAction-1
