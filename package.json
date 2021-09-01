@@ -22,6 +22,7 @@
     "@ecomfe/class-names-loader": "^2.0.0",
     "@ecomfe/eslint-config": "^7.3.0",
     "@svgr/webpack": "^5.5.0",
+    "@types/eslint": "^7.28.0",
     "@types/react": "^17.0.19",
     "@types/react-dom": "^17.0.9",
     "@typescript-eslint/eslint-plugin": "^4.29.3",
