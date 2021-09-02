@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const LessPluginFunctions = require('less-plugin-functions');
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 const hasha = require('hasha');
+const autoprefixer = require('autoprefixer');
 const namespacePefixer = require('postcss-selector-namespace');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const WebpackBar = require('webpackbar');
@@ -100,6 +101,7 @@ module.exports = (cliEnv = {}, argv) => {
           namespacePefixer({
             namespace: `#${appPerfix}`,
           }),
+          autoprefixer,
         ],
       },
     },

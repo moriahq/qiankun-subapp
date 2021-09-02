@@ -7,8 +7,8 @@ import cx from './Demo.less';
 const Demo: React.FC = () => {
   return (
     <div>
-      <h2 className={cx('title')}>这是微前端</h2>
-      <Input placeholder="input 组件测试" />
+      <h2 className={cx('title')}>CSS Modules 测试</h2>
+      <Input placeholder="OSUI input 测试" />
       <Rate allowHalf defaultValue={2.5} />
       <div>
         <img src={Error} />

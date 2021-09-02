@@ -1858,15 +1858,7 @@
     "@types/eslint" "*"
     "@types/estree" "*"
 
-"@types/eslint@*":
-  version "7.28.0"
-  resolved "https://registry.nlark.com/@types/eslint/download/@types/eslint-7.28.0.tgz?cache=0&sync_timestamp=1629707594595&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Feslint%2Fdownload%2F%40types%2Feslint-7.28.0.tgz#7e41f2481d301c68e14f483fe10b017753ce8d5a"
-  integrity sha1-fkHySB0wHGjhT0g/4QsBd1POjVo=
-  dependencies:
-    "@types/estree" "*"
-    "@types/json-schema" "*"
-
-"@types/eslint@^7.28.0":
+"@types/eslint@*", "@types/eslint@^7.28.0":
   version "7.28.0"
   resolved "https://registry.nlark.com/@types/eslint/download/@types/eslint-7.28.0.tgz#7e41f2481d301c68e14f483fe10b017753ce8d5a"
   integrity sha1-fkHySB0wHGjhT0g/4QsBd1POjVo=
