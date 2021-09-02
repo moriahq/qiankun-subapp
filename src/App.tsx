@@ -1,5 +1,12 @@
-import React, { useEffect, Suspense, useMemo } from 'react';
+import React, { useEffect, Suspense } from 'react';
 import { MemoryRouter, Switch, Route, useHistory } from 'react-router-dom';
+import { ConfigProvider, message } from '@osui/ui';
+
+message.config({
+  getContainer: () =>
+    document.getElementById('osc-proxima') || document.getElementById('proxima-plugin'),
+});
+
 import routes from './routes';
 
 interface QiankunContextProps {
@@ -25,15 +32,8 @@ const GoPropsRoute = props => {
 };
 
 const App: React.FC = props => {
-  const qiankunContextValue: any = useMemo(
-    () => ({
-      ...props,
-    }),
-    [props],
-  );
-
   return (
-    <QiankunContext.Provider value={qiankunContextValue}>
+    <ConfigProvider getPopupContainer={() => document.getElementById('proxima-plugin')}>
       <MemoryRouter>
         <GoPropsRoute {...props} />
         <Switch>
@@ -44,7 +44,7 @@ const App: React.FC = props => {
           </Suspense>
         </Switch>
       </MemoryRouter>
-    </QiankunContext.Provider>
+    </ConfigProvider>
   );
 };
 

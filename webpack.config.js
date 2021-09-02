@@ -27,6 +27,8 @@ const outputConfig = isProd =>
         filename: 'main.js',
         path: path.resolve(__dirname, distOutputPath),
         publicPath: '/',
+        library: appPerfix,
+        libraryTarget: 'umd',
       };
 
 const getLocalIdent = ({ resourcePath }, localIdentName, localName) => {
@@ -96,7 +98,7 @@ module.exports = (cliEnv = {}, argv) => {
       postcssOptions: {
         plugins: [
           namespacePefixer({
-            namespace: `.${appPerfix}`,
+            namespace: `#${appPerfix}`,
           }),
         ],
       },
