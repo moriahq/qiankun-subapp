@@ -1282,17 +1282,17 @@
   resolved "https://registry.nlark.com/@osui/flex-centered/download/@osui/flex-centered-1.1.1.tgz#0745503473d59058595ceb1b78abafa8c1ace90a"
   integrity sha1-B0VQNHPVkFhZXOsbeKuvqMGs6Qo=
 
-"@osui/form@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.nlark.com/@osui/form/download/@osui/form-1.1.2.tgz#1b0dcd8d9b87d92f7ec09af00e6c1620625256ee"
-  integrity sha1-Gw3NjZuH2S9+wJrwDmwWIGJSVu4=
+"@osui/form@^1.1.3":
+  version "1.1.3"
+  resolved "https://registry.nlark.com/@osui/form/download/@osui/form-1.1.3.tgz#691272d1d2bc705c543c443752e7fa0132c03a80"
+  integrity sha1-aRJy0dK8cFxUPEQ3Uuf6ATLAOoA=
   dependencies:
     classnames "^2.2.6"
 
-"@osui/gap@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.nlark.com/@osui/gap/download/@osui/gap-1.1.1.tgz#e36ae8d5aad7965c17e4b3be0cb8bfdf90063ce0"
-  integrity sha1-42ro1arXllwX5LO+DLi/35AGPOA=
+"@osui/gap@^1.1.3":
+  version "1.1.3"
+  resolved "https://registry.nlark.com/@osui/gap/download/@osui/gap-1.1.3.tgz#d98252688ec2447cb27a243ae216ae95254246bc"
+  integrity sha1-2YJSaI7CRHyyeiQ64haulSVCRrw=
 
 "@osui/grid@^1.1.1":
   version "1.1.1"
@@ -1636,10 +1636,10 @@
   dependencies:
     classnames "^2.2.6"
 
-"@osui/ui@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.nlark.com/@osui/ui/download/@osui/ui-1.1.2.tgz#ab30eca7313f3d20c9f8b807146565c68137d87b"
-  integrity sha1-qzDspzE/PSDJ+LgHFGVlxoE32Hs=
+"@osui/ui@^1.1.3":
+  version "1.1.3"
+  resolved "https://registry.nlark.com/@osui/ui/download/@osui/ui-1.1.3.tgz#c66b53b26f341a6ab6607c525118f9c21018632e"
+  integrity sha1-xmtTsm80Gmq2YHxSURj5whAYYy4=
   dependencies:
     "@osui/affix" "^1.1.1"
     "@osui/alert" "^1.1.2"
@@ -1669,8 +1669,8 @@
     "@osui/dropdown" "^1.1.2"
     "@osui/empty" "^1.1.2"
     "@osui/flex-centered" "^1.1.1"
-    "@osui/form" "^1.1.2"
-    "@osui/gap" "^1.1.1"
+    "@osui/form" "^1.1.3"
+    "@osui/gap" "^1.1.3"
     "@osui/grid" "^1.1.1"
     "@osui/highlight-text" "^1.1.1"
     "@osui/image" "^1.1.1"
