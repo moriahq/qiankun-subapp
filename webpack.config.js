@@ -12,7 +12,7 @@ const WebpackBar = require('webpackbar');
 const smp = new SpeedMeasurePlugin();
 
 const distOutputPath = 'dist';
-const appPerfix = 'proxima-plugin';
+const appPerfix = '{{projectName}}';
 
 // output配置
 const outputConfig = isProd =>

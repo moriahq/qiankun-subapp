@@ -2,9 +2,11 @@ import React, { useEffect, Suspense } from 'react';
 import { MemoryRouter, Switch, Route, useHistory } from 'react-router-dom';
 import { ConfigProvider, message } from '@osui/ui';
 
+const rootElement = '{{projectName}}';
+
 message.config({
   getContainer: () =>
-    document.getElementById('osc-proxima') || document.getElementById('proxima-plugin'),
+    document.getElementById('osc-proxima') || document.getElementById(rootElement),
 });
 
 import routes from './routes';
@@ -33,7 +35,7 @@ const GoPropsRoute = props => {
 
 const App: React.FC = props => {
   return (
-    <ConfigProvider getPopupContainer={() => document.getElementById('proxima-plugin')}>
+    <ConfigProvider getPopupContainer={() => document.getElementById(rootElement)}>
       <MemoryRouter>
         <GoPropsRoute {...props} />
         <Switch>
