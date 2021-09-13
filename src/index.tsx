@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import './index.global.less';
@@ -11,7 +10,9 @@ function render(props) {
   const { container } = props;
   ReactDOM.render(
     <App {...props} />,
-    container ? container.querySelector('#root') : document.querySelector('#root'),
+    container
+      ? container.querySelector('#proxima-plugin')
+      : document.querySelector('#proxima-plugin'),
   );
 }
 
@@ -26,6 +27,7 @@ export async function bootstrap(): Promise<void> {
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export async function mount(props): Promise<void> {
   console.info('app mount ===>', props);
+  window.QiankunProps = props;
   render(props);
 }
 
@@ -33,6 +35,8 @@ export async function mount(props): Promise<void> {
 export async function unmount(props): Promise<void> {
   const { container } = props;
   ReactDOM.unmountComponentAtNode(
-    container ? container.querySelector('#root') : document.querySelector('#root'),
+    container
+      ? container.querySelector('#proxima-plugin')
+      : document.querySelector('#proxima-plugin'),
   );
 }

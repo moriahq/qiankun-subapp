@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const LessPluginFunctions = require('less-plugin-functions');
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 const hasha = require('hasha');
+const autoprefixer = require('autoprefixer');
 const namespacePefixer = require('postcss-selector-namespace');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const WebpackBar = require('webpackbar');
@@ -11,6 +12,7 @@ const WebpackBar = require('webpackbar');
 const smp = new SpeedMeasurePlugin();
 
 const distOutputPath = 'dist';
+const appPerfix = 'proxima-plugin';
 
 // output配置
 const outputConfig = isProd =>
@@ -19,16 +21,21 @@ const outputConfig = isProd =>
         filename: 'js/[name].[chunkhash].min.js',
         path: path.resolve(__dirname, distOutputPath),
         publicPath: './',
-        library: 'proxima-plugin',
+        library: appPerfix,
         libraryTarget: 'umd',
       }
     : {
         filename: 'main.js',
         path: path.resolve(__dirname, distOutputPath),
         publicPath: '/',
+        library: appPerfix,
+        libraryTarget: 'umd',
       };
 
 const getLocalIdent = ({ resourcePath }, localIdentName, localName) => {
+  if (localName === appPerfix) {
+    return localName;
+  }
   if (/\.global\.(css|less)$/.test(resourcePath) || /node_modules/.test(resourcePath)) {
     // 不做cssModule 处理的
     return localName;
@@ -92,8 +99,9 @@ module.exports = (cliEnv = {}, argv) => {
       postcssOptions: {
         plugins: [
           namespacePefixer({
-            namespace: '.proxima-plugin',
+            namespace: `#${appPerfix}`,
           }),
+          autoprefixer,
         ],
       },
     },
