@@ -17,7 +17,8 @@ function render(props) {
 }
 
 if (!window.__POWERED_BY_QIANKUN__) {
-  render({});
+  const sdk = new ProximaSDK({ sdkServer: window.parent });
+  render({ sdk });
 }
 
 export async function bootstrap(): Promise<void> {
